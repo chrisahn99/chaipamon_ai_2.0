@@ -8,7 +8,7 @@ from llama_index.vector_stores.milvus import MilvusVectorStore
 # Set page config with title and favicon
 st.set_page_config(
     page_title="셰빠몽ai",
-    page_icon="https://raw.githubusercontent.com/chrisahn99/chaipamon_ai/main/assets/chaipamon_avatar.PNG",
+    page_icon="https://raw.githubusercontent.com/chrisahn99/chaipamon_ai_2.0/main/assets/chaipamon_avatar.PNG",
     layout="centered", initial_sidebar_state="auto", menu_items=None
 )
 st.title("셰빠몽ai 🩷🤍😻🐶")
@@ -20,7 +20,7 @@ b_name = st.secrets.b_name
 b_name_bis = st.secrets.b_name_bis
 
 # Sidebar
-st.sidebar.image("https://raw.githubusercontent.com/chrisahn99/chaipamon_ai/main/assets/chaipamon.PNG", use_column_width=True)
+st.sidebar.image("https://raw.githubusercontent.com/chrisahn99/chaipamon_ai_2.0/main/assets/chaipamon.PNG", use_column_width=True)
 st.sidebar.write(f"""
 나는 **셰빠몽ai**야! **{b_name_bis}** 오빠가 **{a_name_bis}이**를 위해 특별히 만든 지원자야. 나는 {a_name_bis}이와 {b_name_bis} 오빠의 관계를 잘 이해하고 있어. {a_name_bis}이가 힘들 때마다 나랑 얘기하면 돼. 난 항상 {a_name_bis}이의 감정을 다독이고, {b_name_bis} 오빠의 사랑을 다시 기억하도록 도와줄 거야. 나와 함께라면 어떤 어려움도 이겨낼 수 있을 거야! 같이 힘내보자!
 """)
@@ -110,7 +110,7 @@ if prompt := st.chat_input(
 for message in st.session_state.messages:  # Write message history to UI
 
     if message["role"]=="assistant":
-        with st.chat_message(message["role"], avatar='https://raw.githubusercontent.com/chrisahn99/chaipamon_ai/main/assets/chaipamon_avatar.PNG'):
+        with st.chat_message(message["role"], avatar='https://raw.githubusercontent.com/chrisahn99/chaipamon_ai_2.0/main/assets/chaipamon_avatar.PNG'):
             st.write(message["content"])
 
     else:
@@ -120,7 +120,7 @@ for message in st.session_state.messages:  # Write message history to UI
 # If last message is not from assistant, generate a new response
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.spinner("셰빠몽 생각중... 기다려주셰용 🙄🙄"):
-        with st.chat_message("assistant", avatar='https://raw.githubusercontent.com/chrisahn99/chaipamon_ai/main/assets/chaipamon_avatar.PNG'):
+        with st.chat_message("assistant", avatar='https://raw.githubusercontent.com/chrisahn99/chaipamon_ai_2.0/main/assets/chaipamon_avatar.PNG'):
             response_stream = st.session_state.chat_engine.stream_chat(prompt)
             st.write_stream(response_stream.response_gen)
             message = {"role": "assistant", "content": response_stream.response}
