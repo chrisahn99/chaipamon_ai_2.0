@@ -81,7 +81,7 @@ def load_data():
             uri="https://in03-8d80e860f27e342.serverless.gcp-us-west1.cloud.zilliz.com",
             token=st.secrets.milvus_key,
             collection_name="chaipamon_collection",
-            dim=768
+            dim=1536
         )
 
         vector_index = VectorStoreIndex.from_vector_store(vector_store=milvus_store)
