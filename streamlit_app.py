@@ -2,7 +2,9 @@ import streamlit as st
 import openai
 from llama_index.llms.openai import OpenAI
 from llama_index.core import VectorStoreIndex, Settings
-from llama_index.vector_stores.milvus import MilvusVectorStore
+from llama_index.vector_stores.pinecone import PineconeVectorStore
+from pinecone import Pinecone
+import os
 
 
 # Set page config with title and favicon
@@ -77,14 +79,12 @@ def load_data():
             model="gpt-4o-mini",
         )
 
-        milvus_store = MilvusVectorStore(
-            uri="https://in03-8d80e860f27e342.serverless.gcp-us-west1.cloud.zilliz.com",
-            token=st.secrets.milvus_key,
-            collection_name="chaipamon_collection_2",
-            dim=1536
-        )
+        pc = Pinecone(api_key=st.secrets.pinecone_key)
+        pinecone_index = pc.Index("chaipamon-db")
+        
+        pinecone_store = PineconeVectorStore(pinecone_index=pinecone_index)
 
-        vector_index = VectorStoreIndex.from_vector_store(vector_store=milvus_store)
+        vector_index = VectorStoreIndex.from_vector_store(vector_store=pinecone_store)
 
         return vector_index
 
