@@ -4,4 +4,5 @@ llama-index
 llama-index-llms-openai
 nltk
 pypdf
-llama-index-vector-stores-milvus
+pinecone
+llama-index-vector-stores-pinecone
