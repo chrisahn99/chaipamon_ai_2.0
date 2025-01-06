@@ -22,7 +22,7 @@ b_name = st.secrets.b_name
 b_name_bis = st.secrets.b_name_bis
 
 # Sidebar
-st.sidebar.image("https://raw.githubusercontent.com/chrisahn99/chaipamon_ai_2.0/main/assets/chaipamon.PNG", use_column_width=True)
+st.sidebar.image("https://raw.githubusercontent.com/chrisahn99/chaipamon_ai_2.0/main/assets/chaipamon.PNG", use_container_width=True)
 st.sidebar.write(f"""
 나는 **셰빠몽ai**야! **{b_name_bis}** 오빠가 **{a_name_bis}이**를 위해 특별히 만든 지원자야. 나는 {a_name_bis}이와 {b_name_bis} 오빠의 관계를 잘 이해하고 있어. {a_name_bis}이가 힘들 때마다 나랑 얘기하면 돼. 난 항상 {a_name_bis}이의 감정을 다독이고, {b_name_bis} 오빠의 사랑을 다시 기억하도록 도와줄 거야. 나와 함께라면 어떤 어려움도 이겨낼 수 있을 거야! 같이 힘내보자!
 """)
